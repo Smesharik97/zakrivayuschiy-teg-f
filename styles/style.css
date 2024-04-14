@@ -15,6 +15,316 @@
 */
 
 .page {
+  color: var(--accent-color);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-color: var(--background-color);
+  font-family: "Inter-Variable", sans-serif;
+  font-size: 18px;
+  line-height: 1.16;
+}
+
+.page__section_id_main {
+  margin-top: -392px;
+}
+
+.page__section > * {
+  margin: auto;
+  width: min(100vw, 700px);
+}
+
+.header {
+  background-image: repeating-linear-gradient(0deg, hsl(0deg 0% 82.75%), transparent 2px),
+    repeating-linear-gradient(90deg, hsl(0deg 0% 82.75%), transparent 2px),
+    linear-gradient(to bottom, hsl(0deg 0% 90.59%), hsl(0deg 0% 10.2%));
+  height: 960px;
+  padding-top: 100px;
+}
+
+.header__theme-menu {
+  background-color: white;
+  height: 368px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.theme-menu__list {
+  margin-bottom: 25px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.theme-menu__button {
+  font-family: var(--accent);
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.theme-menu__button::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 4px;
+  opacity: 0;
+}
+
+.theme-menu__button:disabled {
+  color: hsl(0deg 0% 60%);
+  pointer-events: none;
+}
+
+@keyframes shiftX {
+  from {
+    transform: translate(4px);
+  }
+  to {
+    transform: translate(-4px);
+  }
+}
+
+.theme-menu__button:disabled::before {
+  animation: shiftX 0.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.theme-menu__button:hover {
+  color: hsl(0deg 0% 60%);
+  transition: color 0.3s;
+  transition-timing-function: ease;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.3s;
+  transform: scaleX(0);
+  transform-origin: left;
+  margin-left: 1rem;
+  width: calc(100% - 1rem);
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  color: hsl(0deg 0% 60%);
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.page__title {
+  font-family: var(--accent);
+  text-transform: uppercase;
+  font-size: 65px;
+}
+
+.page__subtitle {
+  font-family: var(--accent);
+  text-transform: uppercase;
+  font-size: 23px;
+}
+
+.page__figcaption {
+  position: absolute;
+  top: 23px;
+  right: 29px;
+  font-size: 14px;
+  font-family: var(--accent), monospace;
+  text-transform: uppercase;
+}
+
+.sprint {
+  margin-bottom: 3rem;
+}
+
+.sprint__title {
+  margin: 3px 10px;
+}
+
+.sprint__figure {
+  margin: 0;
+  position: relative;
+}
+
+.sprint__image {
+  width: 100%;
+}
+
+.sprint__figcaption {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 14px;
+  font-family: var(--accent), monospace;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px white;
+  mix-blend-mode: hard-light;
+  opacity: 50%;
+}
+
+.sprint__body {
+  margin: 25px;
+}
+
+.sprint__text > p:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.sprint__buttons {
+  display: flex;
+  justify-content: end;
+  padding: 25px 0;
+}
+
+.sprint__button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 38px;
+  padding: 0;
+}
+
+.sprint__button:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
+.sprint__button_type_text {
+  border: 2px solid black;
+  font-size: 14px;
+  font-family: var(--accent), monospace;
+  width: 130px;
+}
+
+.button__text {
+  color: white;
+  position: relative;
+  top: -1.6em;
+  mix-blend-mode: difference;
+}
+
+.sprint__button_type_text:focus {
+  outline: none;
+  box-shadow: 2px 2px 0;
+  transition: 0.3s ease;
+}
+
+.sprint__button_type_text::before {
+  content: "";
+  display: block;
+  background-color: black;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  height: 100%;
+  width: 100%;
+}
+
+.sprint__button_type_text:hover::before {
+  transform: scaleX(1);
+}
+
+.card__icon-button {
+  transition: border-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: black;
+}
+
+.card__icon-button .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: transparent;
+}
+
+.card__icon-button:hover .main-body {
+  fill: black;
+  transition-delay: 0s;
+}
+
+.card__icon-button .core {
+  transition: fill 0.3s linear;
+  fill: transparent;
+}
+
+.card__icon-button:hover .core {
+  fill: black;
+  transition-delay: 0.03s;
+}
+
+.card__icon-button:active .main-body {
+  fill: red;
+  transition-delay: 0s;
+}
+
+.card__icon-button:active .core {
+  fill: red;
+  transition-delay: 0.03s;
+}
+
+.card__icon-button:has(.is-liked) .main-body {
+  fill: red;
+  transition-delay: 0s;
+}
+
+.card__icon-button:has(.is-liked) .core {
+  fill: red;
+  transition-delay: 0.03s;
+}
+
+.card__icon-button .contour {
+  fill: black;
+  transition: fill 0.1s linear;
+}
+
+.card__icon-button:has(.is-liked) .contour {
+  fill: red;
+  transition-delay: 0.3s;
+  transition-duration: 0.06s;
+}
+
+@keyframes heart-scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+.card__icon-button:has(.is-liked) .heart {
+  animation: heart-scale 0.3s ease-in 0.1s 2 alternate;
+  transform-origin: center;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+@keyframes heart-sparks {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.card__icon-button:has(.is-liked) .sparks {
+  animation: heart-sparks 0.3s ease-in 0.3s 2 alternate;
 }
