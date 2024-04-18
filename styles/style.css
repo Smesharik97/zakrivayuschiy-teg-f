@@ -40,13 +40,12 @@
 
 .header {
   background-image: var(--background-gradient);
-  height: 960px;
   padding-top: 100px;
+  padding-bottom: 492px
 }
 
 .header__theme-menu {
   background-color: var(--background-color);
-  height: 368px;
   border: 2px solid var(--accent-color);
   display: flex;
   flex-direction: column;
@@ -54,6 +53,12 @@
   align-items: center;
   gap: 20px;
   position: relative;
+}
+
+.theme-menu__item {
+  font-family: var(--accent), monospace;
+  line-height: 100%;
+  font-size: 14px;
 }
 
 .theme-menu__list {
@@ -65,12 +70,11 @@
 }
 
 .theme-menu__button {
-  font-family: var(--accent);
-  font-size: 14px;
   background: transparent;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
+  padding: 0;
 }
 
 .theme-menu__button::before {
@@ -83,15 +87,6 @@
 .theme-menu__button:disabled {
   color: var(--button-theme);
   pointer-events: none;
-}
-
-@keyframes shiftX {
-  from {
-    transform: translate(4px);
-  }
-  to {
-    transform: translate(-4px);
-  }
 }
 
 .theme-menu__button:disabled::before {
@@ -115,6 +110,7 @@
   transform-origin: left;
   margin-left: 1rem;
   width: calc(100% - 1rem);
+  margin-top: -2px;
 }
 
 .theme-menu__button:focus {
@@ -127,15 +123,18 @@
 }
 
 .page__title {
-  font-family: var(--accent);
+  font-family: var(--accent), monospace;
   text-transform: uppercase;
   font-size: clamp(3.0625rem, 2.5723rem + 2.0915vw, 4.0625rem);
+  line-height: 100%;
+  margin-top: 136px;
 }
 
 .page__subtitle {
-  font-family: var(--accent);
+  font-family: var(--accent), monospace;
   text-transform: uppercase;
   font-size: clamp(0.875rem, 0.5993rem + 1.1765vw, 1.4375rem);
+  line-height: 100%;
 }
 
 .page__figcaption {
@@ -145,6 +144,7 @@
   font-size: 14px;
   font-family: var(--accent), monospace;
   text-transform: uppercase;
+  line-height: 100%;
 }
 
 .sprint {
@@ -156,7 +156,8 @@
   padding: 3px 10px;
   background-color: var(--background-color);
   font-weight: var(--font-weight-title);
-  border-bottom: 2px solid;
+  border-bottom: 2px solid currentColor;
+  font-size: 18px;
 }
 
 .sprint__figure {
@@ -168,31 +169,31 @@
   width: 100%;
 }
 
-.sprint__image-1 {
+.sprint__image-mix {
   filter: invert(1) brightness(200%) saturate(60%) hue-rotate(90deg);
 }
 
-.sprint__image-2 {
+.sprint__image-blur {
   filter: blur(0.2rem);
 }
 
-.sprint__image-3 {
+.sprint__image-grayscale {
   filter: grayscale(0.8);
 }
 
-.sprint__image-4 {
+.sprint__image-sepia {
   filter: sepia(80%);
 }
 
-.sprint__image-5 {
+.sprint__image-hue {
   filter: hue-rotate(90deg);
 }
 
-.sprint__image-6 {
+.sprint__image-saturate {
   filter: saturate(60%);
 }
 
-.sprint__image-7 {
+.sprint__image-invert {
   filter: invert(1);
 }
 
@@ -265,13 +266,6 @@
   align-items: center;
   gap: 8px;
   top: calc(-50% - 10.5px);
-}
-
-/* TODO: удалить */
-.svg__like {
-  background: var(--button-text);
-  height: 21px;
-  width: 21px;
 }
 
 .sprint__button_type_text:focus {
@@ -354,27 +348,9 @@
   transition-duration: 0.06s;
 }
 
-@keyframes heart-scale {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.5);
-  }
-}
-
 .card__icon-button:has(.is-liked) .heart {
   animation: heart-scale 0.3s ease-in 0.1s 2 alternate;
   transform-origin: center;
-}
-
-@keyframes heart-sparks {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .card__icon-button .sparks {
@@ -415,7 +391,7 @@ dialog .sprint__button {
 }
 
 .dialog__text {
-  font-family: var(--accent);
+  font-family: var(--accent), monospace;
   font-size: 14px;
   text-transform: uppercase;
   color: var(--accent-color);
@@ -429,7 +405,11 @@ dialog::backdrop {
 
 @media (width <= 375px) {
   .header {
-    height: 667px;
+    padding-bottom: 240px;
+  }
+
+  .page__title {
+    margin-top: 120px;
   }
 
   .page__figcaption {
@@ -438,10 +418,6 @@ dialog::backdrop {
 
   .page__section_id_main {
     margin-top: -140px;
-  }
-
-  .header__theme-menu {
-    height: 327px;
   }
 
   .sprint__button_cta {
