@@ -41,7 +41,7 @@
 .header {
   background-image: var(--background-gradient);
   padding-top: 100px;
-  padding-bottom: 492px
+  padding-bottom: 492px;
 }
 
 .header__theme-menu {
@@ -134,16 +134,6 @@
   font-family: var(--accent), monospace;
   text-transform: uppercase;
   font-size: clamp(0.875rem, 0.5993rem + 1.1765vw, 1.4375rem);
-  line-height: 100%;
-}
-
-.page__figcaption {
-  position: absolute;
-  top: 23px;
-  right: 29px;
-  font-size: 14px;
-  font-family: var(--accent), monospace;
-  text-transform: uppercase;
   line-height: 100%;
 }
 
@@ -410,10 +400,6 @@ dialog::backdrop {
 
   .page__title {
     margin-top: 120px;
-  }
-
-  .page__figcaption {
-    display: none;
   }
 
   .page__section_id_main {
